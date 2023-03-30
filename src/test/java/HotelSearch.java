@@ -34,6 +34,13 @@ public class HotelSearch{
                 .filter(el -> el.isDisplayed())
                 .findFirst()
                 .ifPresent(el -> el.click());
+        //dodajemy jedno dziecko i jednego rodzica
+
+        driver.findElement(By.id("travellersInput")).click();
+        driver.findElement(By.id("adultPlusBtn")).click();
+        driver.findElement(By.id("childPlusBtn")).click();
+
+
 
         driver.findElement(By.xpath("//button[@class='btn btn-lg btn-block btn-primary pfb0 loader']")).click();
 
