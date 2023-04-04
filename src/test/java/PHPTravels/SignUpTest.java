@@ -1,52 +1,40 @@
 package PHPTravels;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import PHPTravels.pages.HotelSearchPage;
+import PHPTravels.pages.LoggedUserPage;
+import PHPTravels.pages.SignUpPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.w3c.dom.ls.LSOutput;
-
-import java.util.concurrent.TimeUnit;
 
 
 public class SignUpTest extends BaseTest {
 
     @Test
-    public void signUp(){
-        FirefoxDriver driver = new FirefoxDriver();
-        driver.get("http://www.kurs-selenium.pl/demo/");
-        driver.manage().window().maximize();
-        driver.findElements(By.id("li_myaccount")).stream()
-                .filter(WebElement::isDisplayed)
-                .findFirst()
-                .ifPresent(WebElement::click);
-        driver.findElements(By.xpath("//a[@class='go-text-right' and text()='  Sign Up']")).stream()
-                .filter(WebElement::isDisplayed)
-                .findFirst()
-                .ifPresent(WebElement::click);
+    public void signUp() {
+
 
         String lastname = "Testowy";
-
-        int randomNumber = (int) (Math.random()*1000);
+        int randomNumber = (int) (Math.random() * 1000);
         String email = "Tester" + randomNumber + "@wp.pl";
 
+        HotelSearchPage hotelSearchPage = new HotelSearchPage(driver);
+        hotelSearchPage.openSignUpForm();
+
+        SignUpPage signUpPage = new SignUpPage(driver);
+        signUpPage.setName("Michał");
+        signUpPage.setLastName(lastname);
+        signUpPage.setPhone("696696969");
+        signUpPage.setEmail(email);
+        signUpPage.setPassword("111111");
+        signUpPage.confirmPassword("111111");
+        signUpPage.setSignUpBtn();
+
+        LoggedUserPage loggedUserPage = new LoggedUserPage(driver);
 
 
-        driver.findElement(By.name("firstname")).sendKeys("Michal");
-        driver.findElement(By.name("lastname")).sendKeys(lastname);
-        driver.findElement(By.name("phone")).sendKeys("696696696");
-        driver.findElement(By.name("email")).sendKeys(email);
-        driver.findElement(By.name("password")).sendKeys("111111");
-        driver.findElement(By.name("confirmpassword")).sendKeys("111111");
+        Assert.assertTrue(loggedUserPage.getHeadingText().contains(lastname));
+        Assert.assertEquals(loggedUserPage.getHeadingText(), "Hi, Michał Testowy");
 
-        driver.findElement(By.xpath("//button[@class='signupbtn btn_full btn btn-action btn-block btn-lg']")).click();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-         WebElement heading = driver.findElement(By.xpath("//h3[@class='RTL' and text()='Hi, Michal Testowy']"));
-
-        Assert.assertTrue(heading.getText().contains(lastname));
-        Assert.assertEquals(heading.getText(),"Hi, Michal Testowy");
-        driver.quit();
 
     }
 }
