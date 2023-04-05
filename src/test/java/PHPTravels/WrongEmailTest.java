@@ -12,9 +12,7 @@ import java.util.stream.Collectors;
 public class WrongEmailTest extends BaseTest {
     @Test
     public void wrongEmail(){
-        FirefoxDriver driver = new FirefoxDriver();
-        driver.get("http://www.kurs-selenium.pl/demo/");
-        driver.manage().window().maximize();
+
         driver.findElements(By.id("li_myaccount")).stream()
                 .filter(WebElement::isDisplayed)
                 .findFirst()
@@ -39,6 +37,6 @@ public class WrongEmailTest extends BaseTest {
                 .collect(Collectors.toList());
    Assert.assertTrue(alert.contains("The Email field must contain a valid email address."));
 
-        driver.quit();
+
     }
 }

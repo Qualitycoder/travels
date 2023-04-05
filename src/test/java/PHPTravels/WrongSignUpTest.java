@@ -14,9 +14,7 @@ public class WrongSignUpTest extends BaseTest {
 
     @Test
     public void errors(){
-        FirefoxDriver driver = new FirefoxDriver();
-        driver.get("http://www.kurs-selenium.pl/demo/");
-        driver.manage().window().maximize();
+
         driver.findElements(By.id("li_myaccount")).stream()
                 .filter(WebElement::isDisplayed)
                 .findFirst()
@@ -41,6 +39,6 @@ public class WrongSignUpTest extends BaseTest {
 
 
 
-        driver.quit();
+
     }
 }

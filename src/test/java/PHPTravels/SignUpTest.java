@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.w3c.dom.ls.LSOutput;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,9 +14,7 @@ public class SignUpTest extends BaseTest {
 
     @Test
     public void signUp(){
-        FirefoxDriver driver = new FirefoxDriver();
-        driver.get("http://www.kurs-selenium.pl/demo/");
-        driver.manage().window().maximize();
+
         driver.findElements(By.id("li_myaccount")).stream()
                 .filter(WebElement::isDisplayed)
                 .findFirst()
@@ -46,7 +44,7 @@ public class SignUpTest extends BaseTest {
 
         Assert.assertTrue(heading.getText().contains(lastname));
         Assert.assertEquals(heading.getText(),"Hi, Michal Testowy");
-        driver.quit();
+
 
     }
 }
