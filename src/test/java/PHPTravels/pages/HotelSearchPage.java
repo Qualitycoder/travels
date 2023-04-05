@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class HotelSearchPage {
 
 
@@ -44,6 +46,11 @@ public class HotelSearchPage {
     @FindBy(xpath = "//button[@class='btn btn-lg btn-block btn-primary pfb0 loader']")
     private WebElement searchButton;
 
+    @FindBy(xpath = "//a[@class='go-text-right' and text()='  Sign Up']")
+    private List<WebElement> signUpLink;
+
+    @FindBy(id = "li_myaccount")
+    private List<WebElement> myAccountLink;
 
     public void setCity(String cityName) {
         searchHotelSpan.click();
@@ -74,7 +81,13 @@ public class HotelSearchPage {
         searchButton.click();
     }
 
-
+    public void openSignUpForm() {
+        myAccountLink.stream()
+                .filter(WebElement::isDisplayed)
+                .findFirst()
+                .ifPresent(WebElement::click);
+        signUpLink.get(1).click();
+    }
 }
 
 

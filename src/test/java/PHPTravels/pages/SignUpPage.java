@@ -11,9 +11,6 @@ import java.util.stream.Collectors;
 public class SignUpPage {
 
 
-    @FindBy(xpath = "//div[@class='alert alert-danger']//p")
-    private List<WebElement> errors;
-
     @FindBy(name = "firstname")
     private WebElement nameInput;
 
@@ -34,6 +31,9 @@ public class SignUpPage {
 
     @FindBy(xpath = "//button[@class='signupbtn btn_full btn btn-action btn-block btn-lg']")
     private WebElement signUpBtn;
+
+    @FindBy(xpath = "//div[@class='alert alert-danger']//p")
+    private List<WebElement> errors;
 
     public void setName(String firstname) {
         nameInput.sendKeys(firstname);
