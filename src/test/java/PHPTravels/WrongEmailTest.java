@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class WrongEmailTest extends BaseTest {
     @Test
-    public void wrongEmail(){
+    public void wrongEmail() {
 
         driver.findElements(By.id("li_myaccount")).stream()
                 .filter(WebElement::isDisplayed)
@@ -23,7 +23,6 @@ public class WrongEmailTest extends BaseTest {
                 .ifPresent(WebElement::click);
 
 
-
         driver.findElement(By.name("firstname")).sendKeys("Michal");
         driver.findElement(By.name("lastname")).sendKeys("Testowy");
         driver.findElement(By.name("phone")).sendKeys("696696696");
@@ -33,9 +32,9 @@ public class WrongEmailTest extends BaseTest {
 
         driver.findElement(By.xpath("//button[@class='signupbtn btn_full btn btn-action btn-block btn-lg']")).click();
 
-        List<String> alert =  driver.findElements(By.xpath("//div[@class='alert alert-danger']//p")).stream().map(WebElement::getText)
+        List<String> alert = driver.findElements(By.xpath("//div[@class='alert alert-danger']//p")).stream().map(WebElement::getText)
                 .collect(Collectors.toList());
-   Assert.assertTrue(alert.contains("The Email field must contain a valid email address."));
+        Assert.assertTrue(alert.contains("The Email field must contain a valid email address."));
 
 
     }

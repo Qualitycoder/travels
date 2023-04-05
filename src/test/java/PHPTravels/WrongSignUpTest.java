@@ -13,7 +13,7 @@ public class WrongSignUpTest extends BaseTest {
 
 
     @Test
-    public void errors(){
+    public void errors() {
 
         driver.findElements(By.id("li_myaccount")).stream()
                 .filter(WebElement::isDisplayed)
@@ -26,9 +26,8 @@ public class WrongSignUpTest extends BaseTest {
         driver.findElement(By.xpath("//button[@class='signupbtn btn_full btn btn-action btn-block btn-lg']")).click();
 
 
-
-      List<String> alerts =  driver.findElements(By.xpath("//div[@class='alert alert-danger']//p")).stream().map(WebElement::getText)
-              .collect(Collectors.toList());
+        List<String> alerts = driver.findElements(By.xpath("//div[@class='alert alert-danger']//p")).stream().map(WebElement::getText)
+                .collect(Collectors.toList());
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(alerts.contains("The Email field is required."));
         softAssert.assertTrue(alerts.contains("The Password field is required."));
@@ -36,8 +35,6 @@ public class WrongSignUpTest extends BaseTest {
         softAssert.assertTrue(alerts.contains("The First name field is required."));
         softAssert.assertTrue(alerts.contains("The Last Name field is required."));
         softAssert.assertAll();
-
-
 
 
     }

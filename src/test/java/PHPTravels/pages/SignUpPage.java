@@ -11,69 +11,69 @@ import java.util.stream.Collectors;
 public class SignUpPage {
 
 
-        @FindBy(xpath = "//div[@class='alert alert-danger']//p")
-        private List<WebElement> errors;
+    @FindBy(xpath = "//div[@class='alert alert-danger']//p")
+    private List<WebElement> errors;
 
-        @FindBy(name = "firstname")
-        private WebElement nameInput;
+    @FindBy(name = "firstname")
+    private WebElement nameInput;
 
-        @FindBy(name = "lastname")
-        private WebElement lastnameInput;
+    @FindBy(name = "lastname")
+    private WebElement lastnameInput;
 
-        @FindBy(name = "phone")
-        private WebElement phoneInput;
+    @FindBy(name = "phone")
+    private WebElement phoneInput;
 
-        @FindBy(name = "email")
-        private WebElement emailInput;
+    @FindBy(name = "email")
+    private WebElement emailInput;
 
-        @FindBy(name = "password")
-        private WebElement passwordInput;
+    @FindBy(name = "password")
+    private WebElement passwordInput;
 
-        @FindBy(name = "confirmpassword")
-        private WebElement confirmpasswordInput;
+    @FindBy(name = "confirmpassword")
+    private WebElement confirmpasswordInput;
 
-        @FindBy(xpath = "//button[@class='signupbtn btn_full btn btn-action btn-block btn-lg']")
-        private WebElement signUpBtn;
+    @FindBy(xpath = "//button[@class='signupbtn btn_full btn btn-action btn-block btn-lg']")
+    private WebElement signUpBtn;
 
-        public void setName(String firstname) {
-            nameInput.sendKeys(firstname);
-        }
+    public void setName(String firstname) {
+        nameInput.sendKeys(firstname);
+    }
 
-        public void setLastName(String lastname) {
-            lastnameInput.sendKeys(lastname);
-        }
+    public void setLastName(String lastname) {
+        lastnameInput.sendKeys(lastname);
+    }
 
-        public void setPhone(String phone) {
-            phoneInput.sendKeys(phone);
-        }
+    public void setPhone(String phone) {
+        phoneInput.sendKeys(phone);
+    }
 
-        public void setEmail(String email) {
-            emailInput.sendKeys(email);
-        }
+    public void setEmail(String email) {
+        emailInput.sendKeys(email);
+    }
 
-        public void setPassword(String password) {
-            passwordInput.sendKeys(password);
-        }
+    public void setPassword(String password) {
+        passwordInput.sendKeys(password);
+    }
 
-        public void confirmPassword(String password) {
-            confirmpasswordInput.sendKeys(password);
-        }
+    public void confirmPassword(String password) {
+        confirmpasswordInput.sendKeys(password);
+    }
 
-        public void setSignUpBtn() {
-            signUpBtn.click();
-        }
+    public void setSignUpBtn() {
+        signUpBtn.click();
+    }
 
-        public SignUpPage(WebDriver driver) {
-            PageFactory.initElements(driver, this);
-        }
+    public SignUpPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
 
-        public List<String> getErrors() {
-            return errors.stream()
-                    .map(WebElement::getText)
-                    .collect(Collectors.toList());
-
-        }
+    public List<String> getErrors() {
+        return errors.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
 
     }
+
+}
 
 
