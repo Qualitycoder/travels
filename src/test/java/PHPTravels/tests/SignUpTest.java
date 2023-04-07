@@ -1,14 +1,11 @@
-package PHPTravels;
+package PHPTravels.tests;
 
 import PHPTravels.pages.HotelSearchPage;
 import PHPTravels.pages.LoggedUserPage;
 import PHPTravels.pages.SignUpPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import PHPTravels.tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 
 
 public class SignUpTest extends BaseTest {
