@@ -1,4 +1,4 @@
-package PHPTravels;
+package PHPTravels.tests;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
