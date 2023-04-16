@@ -2,7 +2,6 @@ package PHPTravels.tests;
 
 import PHPTravels.pages.HotelSearchPage;
 import PHPTravels.pages.ResultsPage;
-import PHPTravels.tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

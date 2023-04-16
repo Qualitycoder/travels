@@ -2,7 +2,6 @@ package PHPTravels.tests;
 
 import PHPTravels.pages.HotelSearchPage;
 import PHPTravels.pages.SignUpPage;
-import PHPTravels.tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -23,9 +22,7 @@ public class WrongEmailTest extends BaseTest {
         signUpPage.setPassword("111111");
         signUpPage.confirmPassword("111111");
         signUpPage.setSignUpBtn();
-signUpPage.getErrors();
-
-
+        signUpPage.getErrors();
 
 
         Assert.assertTrue(signUpPage.getErrors().contains("The Email field must contain a valid email address."));

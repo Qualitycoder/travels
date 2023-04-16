@@ -24,6 +24,7 @@ public class BaseTest {
         extentReports = new ExtentReports();
         extentReports.attachReporter(htmlReporter);
     }
+
     @AfterSuite
     public void afterSuite() {
         htmlReporter.flush();

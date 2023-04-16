@@ -56,7 +56,7 @@ public class HotelSearchPage {
     private static final Logger logger = LogManager.getLogger();
 
     public void setCity(String cityName) {
-        logger.info("Setting city"+ cityName);
+        logger.info("Setting city" + cityName);
         searchHotelSpan.click();
         searchHotelInput.sendKeys(cityName);
         String xpath = String.format("//span[@class='select2-match' and text()='%s']", cityName);
@@ -65,7 +65,7 @@ public class HotelSearchPage {
     }
 
     public void setDates(String checkin, String checkout) {
-        logger.info("Setting dates check-in:"+ checkin + "and check-out:" + checkout);
+        logger.info("Setting dates check-in:" + checkin + "and check-out:" + checkout);
         checkinInput.sendKeys(checkin);
         checkoutInput.sendKeys(checkout);
         logger.info("Done");
@@ -73,7 +73,7 @@ public class HotelSearchPage {
 
 
     public void setTravellers(int adultsToAdd, int childsToAdd) {
-        logger.info("Add adults:"+ adultsToAdd + "and childs" + childsToAdd);
+        logger.info("Add adults:" + adultsToAdd + "and childs" + childsToAdd);
         travellersInput.click();
         addTraveler(adultPlusBtn, adultsToAdd);
         addTraveler(childPlusBtn, childsToAdd);

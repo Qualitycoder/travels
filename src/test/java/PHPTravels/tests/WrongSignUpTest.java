@@ -2,7 +2,6 @@ package PHPTravels.tests;
 
 import PHPTravels.pages.HotelSearchPage;
 import PHPTravels.pages.SignUpPage;
-import PHPTravels.tests.BaseTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -19,9 +18,6 @@ public class WrongSignUpTest extends BaseTest {
         SignUpPage signUpPage = new SignUpPage(driver);
         signUpPage.setSignUpBtn();
         signUpPage.getErrors();
-
-
-
 
 
         SoftAssert softAssert = new SoftAssert();
